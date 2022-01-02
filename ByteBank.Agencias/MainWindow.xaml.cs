@@ -23,14 +23,14 @@ namespace ByteBank.Agencias
     {
         //campo privado e somente leitura
         private readonly ByteBankEntities _contextoBancoDeDados = new ByteBankEntities();
-        private readonly AgenciasListBox lstAgencias;
+        private readonly ListBox lstAgencias;
 
         public MainWindow()
         {
             InitializeComponent();
-            
-            // o this nesse momento é para criar a instancia
-            lstAgencias = new AgenciasListBox(this);
+
+            // a ListBox do .net não precisa de argumento
+            lstAgencias = new ListBox();
             AtualizarControles();
         }
 
@@ -44,6 +44,8 @@ namespace ByteBank.Agencias
             Canvas.SetTop(lstAgencias, 15);
             Canvas.SetLeft(lstAgencias, 15);
 
+            lstAgencias.SelectionChanged += new SelectionChangedEventHandler(lstAgencias_SelectionChanged);
+
             //esse container vai conter varios elementos na nossa janela e vamos adicionar mais 1
             //estamos fazendo isso para adicionar um evento de clique na lista para atualizar os nossos detalhes
             container.Children.Add(lstAgencias);
@@ -55,6 +57,17 @@ namespace ByteBank.Agencias
             var agencias = _contextoBancoDeDados.Agencias.ToList();
             foreach (var agencia in agencias)
                 lstAgencias.Items.Add(agencia);
+        }
+
+        private void lstAgencias_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var agenciaSelecionada = (Agencia)lstAgencias.SelectedItem;//foi feito um "cast" para converter de "objeto" para "agencia"
+
+            txtNumero.Text = agenciaSelecionada.Numero;
+            txtNome.Text = agenciaSelecionada.Nome;
+            txtTelefone.Text = agenciaSelecionada.Telefone;
+            txtEndereco.Text = agenciaSelecionada.Endereco;
+            txtDescricao.Text = agenciaSelecionada.Descricao;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
