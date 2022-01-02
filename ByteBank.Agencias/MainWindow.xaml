@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:ByteBank.Agencias"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    
+    <!--o nome "container" é porque ele vai conter todos os elementos da nossa janela-->
     <Canvas Name="container">
         <StackPanel Canvas.Top="15" Canvas.Left="290">
             <TextBlock FontWeight="Bold">Número</TextBlock>

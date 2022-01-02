@@ -28,7 +28,8 @@ namespace ByteBank.Agencias
         public MainWindow()
         {
             InitializeComponent();
-
+            
+            // o this nesse momento é para criar a instancia
             lstAgencias = new AgenciasListBox(this);
             AtualizarControles();
         }
@@ -36,14 +37,18 @@ namespace ByteBank.Agencias
         //atualiza a lista
         private void AtualizarControles()
         {
+            // definindo as dimensões da janela
             lstAgencias.Width = 270;
             lstAgencias.Height = 290;
 
             Canvas.SetTop(lstAgencias, 15);
             Canvas.SetLeft(lstAgencias, 15);
 
+            //esse container vai conter varios elementos na nossa janela e vamos adicionar mais 1
+            //estamos fazendo isso para adicionar um evento de clique na lista para atualizar os nossos detalhes
             container.Children.Add(lstAgencias);
 
+            //Limpa a lista 
             lstAgencias.Items.Clear();
 
             //pega as agencias, guarda numa lista e passando para variavel agencia
