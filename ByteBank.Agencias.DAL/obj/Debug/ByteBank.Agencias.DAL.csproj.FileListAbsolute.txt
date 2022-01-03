@@ -7,7 +7,6 @@ C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\bin\Debug\EntityFramewor
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\bin\Debug\EntityFramework.SqlServer.dll
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\bin\Debug\EntityFramework.xml
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\obj\Debug\ByteBank.Agencias.DAL.csprojAssemblyReference.cache
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\obj\Debug\ByteBank.Agencias.DAL.csproj.CoreCompileInputs.cache
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\obj\Debug\ByteBank.Agencias.DAL.csproj.CopyComplete
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\obj\Debug\ByteBank.Agencias.DAL.dll
