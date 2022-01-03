@@ -48,12 +48,17 @@ namespace ByteBank.Agencias
             //manipulando eventos
             //usando metodos de manipulação da classe delegate
             //combinando dois delegates
-            Delegate okEventHandler = (RoutedEventHandler)btnOk_Click + Fechar;
-            Delegate cancelarEventHandler = (RoutedEventHandler)btnCancelar_Click + Fechar;
+            var okEventHandler = (RoutedEventHandler)btnOk_Click + Fechar;
+            var cancelarEventHandler = 
+                (RoutedEventHandler)Delegate.Combine(
+                    (RoutedEventHandler)btnCancelar_Click, 
+                    (RoutedEventHandler)Fechar);
 
-            //adicionando comportamento para o evento
-            btnOk.Click += new RoutedEventHandler(Fechar);
-            btnCancelar.Click += new RoutedEventHandler(Fechar);
+
+            btnOk.Click += okEventHandler;
+            btnCancelar.Click += cancelarEventHandler;
+
+
         }
 
         private void btnOk_Click(Object sender, EventArgs e) =>
