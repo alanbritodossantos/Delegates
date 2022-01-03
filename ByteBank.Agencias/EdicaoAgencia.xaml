@@ -20,8 +20,8 @@
             <TextBox Name="txtEndereco"></TextBox>
         
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5">
-                <Button Content="ok" Margin="15,0" Padding="5"/>
-                <Button Content="Cancelar" Margin="15,0" Padding="5"/>
+                <Button Name="btnOk" Content="ok" Margin="15,0" Padding="5"/>
+                <Button Name="btnCancelar" Content="Cancelar" Margin="15,0" Padding="5"/>
             </StackPanel>
         </StackPanel>
 

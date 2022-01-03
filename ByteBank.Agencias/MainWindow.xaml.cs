@@ -50,17 +50,30 @@ namespace ByteBank.Agencias
             //esse container vai conter varios elementos na nossa janela e vamos adicionar mais 1
             //estamos fazendo isso para adicionar um evento de clique na lista para atualizar os nossos detalhes
             container.Children.Add(lstAgencias);
-
+            AtualizarListaDeAgencias();//ppppppppppwufhwiufhwkuwfhwfkhwefk
             btnEditar.Click += new RoutedEventHandler(btnEditar_Click);
         }
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            var janelaEdicao = new EdicaoAgencia();
+            //pegando a agencia atual
+            var agenciaAtual = (Agencia)lstAgencias.SelectedItem;
+
+            //cria a janela edição
+            var janelaEdicao = new EdicaoAgencia(agenciaAtual);
 
             //é um comportamento que assim que é chamado a tela, não deixa sair dela enquando o usuario
             // não clicar nos botões que a tela mostra.
-            janelaEdicao.ShowDialog();
+            var resultado = janelaEdicao.ShowDialog().Value;//retorna um bool que pode ser nulo
+
+            if (resultado)
+            {
+                //Usuario clicou em OK
+            }
+            else
+            {
+                //Usuario clicou em Cancelar
+            }
         }
 
         private void AtualizarListaDeAgencias()
