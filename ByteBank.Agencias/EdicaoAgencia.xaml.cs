@@ -46,14 +46,16 @@ namespace ByteBank.Agencias
         private void AtualizarControles()
         {
             //metodo anonimo é um metodo que não possui nome
-            //Delegates
+            //criamos variáveis que armazenam o código do 
+            //delegates por meio de métodos anônimos, para casos pontuais de 
+            //código que seria usado em apenas um lugar.
             RoutedEventHandler dialogResultTrue = delegate (object o, RoutedEventArgs e)//metodo anonimo
             {
                 DialogResult = true;
             };
             RoutedEventHandler dialogResultFalse = delegate (object o, RoutedEventArgs e)//metodo anonimo
             {
-                DialogResult = false;
+                DialogResult = true;
             };
 
      
@@ -72,7 +74,8 @@ namespace ByteBank.Agencias
          
         private void btnCancelar_Click(Object sender, EventArgs e) =>
             DialogResult = false;
-                   
+
+        // (covariance )
         private void Fechar(Object sender, EventArgs e) =>
             Close();
         
