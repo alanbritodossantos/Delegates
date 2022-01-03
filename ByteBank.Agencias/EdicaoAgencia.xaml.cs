@@ -46,21 +46,18 @@ namespace ByteBank.Agencias
         private void AtualizarControles()
         {
             //adicionando comportamento para o evento
-            btnOk.Click += new RoutedEventHandler(btnOk_Click);
-            btnCancelar.Click += new RoutedEventHandler(btnCancelar_Click);
+            btnOk.Click += new RoutedEventHandler(Fechar);
+            btnCancelar.Click += new RoutedEventHandler(Fechar);
         }
 
-        private void btnOk_Click(Object sender, EventArgs e)
-        {
+        private void btnOk_Click(Object sender, EventArgs e) =>
             DialogResult = true;
-            //metodo que fecha a tela
-            Close();
-        }
-        private void btnCancelar_Click(Object sender, EventArgs e)
-        {
+         
+        private void btnCancelar_Click(Object sender, EventArgs e) =>
             DialogResult = false;
-            //metodo que fecha a tela
+                   
+        private void Fechar(Object sender, EventArgs e) =>
             Close();
-        }
+        
     }
 }
