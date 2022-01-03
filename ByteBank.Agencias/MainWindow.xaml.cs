@@ -44,12 +44,27 @@ namespace ByteBank.Agencias
             Canvas.SetTop(lstAgencias, 15);
             Canvas.SetLeft(lstAgencias, 15);
 
+            //É um delegate - definindo comportamento
             lstAgencias.SelectionChanged += new SelectionChangedEventHandler(lstAgencias_SelectionChanged);
 
             //esse container vai conter varios elementos na nossa janela e vamos adicionar mais 1
             //estamos fazendo isso para adicionar um evento de clique na lista para atualizar os nossos detalhes
             container.Children.Add(lstAgencias);
 
+            btnEditar.Click += new RoutedEventHandler(btnEditar_Click);
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            var janelaEdicao = new EdicaoAgencia();
+
+            //é um comportamento que assim que é chamado a tela, não deixa sair dela enquando o usuario
+            // não clicar nos botões que a tela mostra.
+            janelaEdicao.ShowDialog();
+        }
+
+        private void AtualizarListaDeAgencias()
+        {
             //Limpa a lista 
             lstAgencias.Items.Clear();
 

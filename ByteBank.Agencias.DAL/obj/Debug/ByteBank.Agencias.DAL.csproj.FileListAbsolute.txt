@@ -11,3 +11,4 @@ C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\obj\Debug\ByteBank.Agenc
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\obj\Debug\ByteBank.Agencias.DAL.csproj.CopyComplete
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\obj\Debug\ByteBank.Agencias.DAL.dll
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\obj\Debug\ByteBank.Agencias.DAL.pdb
+C:\workspace\AspNetCore\Delegates\ByteBank.Agencias.DAL\obj\Debug\ByteBank.Agencias.DAL.csprojAssemblyReference.cache

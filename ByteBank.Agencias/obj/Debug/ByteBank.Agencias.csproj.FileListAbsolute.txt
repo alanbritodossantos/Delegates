@@ -23,3 +23,5 @@ C:\workspace\AspNetCore\Delegates\ByteBank.Agencias\obj\Debug\ByteBank.Agencias.
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias\obj\Debug\ByteBank.Agencias.csproj.CopyComplete
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias\obj\Debug\ByteBank.Agencias.exe
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias\obj\Debug\ByteBank.Agencias.pdb
+C:\workspace\AspNetCore\Delegates\ByteBank.Agencias\obj\Debug\EdicaoAgencia.g.cs
+C:\workspace\AspNetCore\Delegates\ByteBank.Agencias\obj\Debug\EdicaoAgencia.baml
