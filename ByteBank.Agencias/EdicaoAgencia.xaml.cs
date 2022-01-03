@@ -45,6 +45,12 @@ namespace ByteBank.Agencias
 
         private void AtualizarControles()
         {
+            //manipulando eventos
+            //usando metodos de manipulação da classe delegate
+            //combinando dois delegates
+            Delegate okEventHandler = (RoutedEventHandler)btnOk_Click + Fechar;
+            Delegate cancelarEventHandler = (RoutedEventHandler)btnCancelar_Click + Fechar;
+
             //adicionando comportamento para o evento
             btnOk.Click += new RoutedEventHandler(Fechar);
             btnCancelar.Click += new RoutedEventHandler(Fechar);
