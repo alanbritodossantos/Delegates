@@ -45,14 +45,20 @@ namespace ByteBank.Agencias
 
         private void AtualizarControles()
         {
-            //manipulando eventos
-            //usando metodos de manipulação da classe delegate
-            //combinando dois delegates
-            var okEventHandler = (RoutedEventHandler)btnOk_Click + Fechar;
-            var cancelarEventHandler = 
-                (RoutedEventHandler)Delegate.Combine(
-                    (RoutedEventHandler)btnCancelar_Click, 
-                    (RoutedEventHandler)Fechar);
+            //metodo anonimo é um metodo que não possui nome
+            //Delegates
+            RoutedEventHandler dialogResultTrue = delegate (object o, RoutedEventArgs e)//metodo anonimo
+            {
+                DialogResult = true;
+            };
+            RoutedEventHandler dialogResultFalse = delegate (object o, RoutedEventArgs e)//metodo anonimo
+            {
+                DialogResult = false;
+            };
+
+     
+            var okEventHandler = dialogResultTrue + Fechar;
+            var cancelarEventHandler = dialogResultFalse + Fechar;
 
 
             btnOk.Click += okEventHandler;
