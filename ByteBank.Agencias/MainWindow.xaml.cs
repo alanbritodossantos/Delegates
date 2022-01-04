@@ -50,7 +50,7 @@ namespace ByteBank.Agencias
             //esse container vai conter varios elementos na nossa janela e vamos adicionar mais 1
             //estamos fazendo isso para adicionar um evento de clique na lista para atualizar os nossos detalhes
             container.Children.Add(lstAgencias);
-            AtualizarListaDeAgencias();//ppppppppppwufhwiufhwkuwfhwfkhwefk
+            AtualizarListaDeAgencias();
             btnEditar.Click += new RoutedEventHandler(btnEditar_Click);
         }
 

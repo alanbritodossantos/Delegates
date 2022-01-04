@@ -52,10 +52,7 @@ namespace ByteBank.Agencias
             //                                  sintaxe lambda       
             RoutedEventHandler dialogResultTrue = (o, e) => DialogResult = true; //operador de expressão lambda
 
-            RoutedEventHandler dialogResultFalse = (o, e) => DialogResult = true;
-
-
-
+            RoutedEventHandler dialogResultFalse = (o, e) => DialogResult = false;
 
             var okEventHandler = dialogResultTrue + Fechar;
             var cancelarEventHandler = dialogResultFalse + Fechar;
@@ -63,7 +60,65 @@ namespace ByteBank.Agencias
             btnOk.Click += okEventHandler;
             btnCancelar.Click += cancelarEventHandler;
 
+            txtTelefone.TextChanged += TxtTelefone_TextChanged;
+            txtNome.TextChanged += TxtNome_TextChanged;
+            txtDescricao.TextChanged += TxtDescricao_TextChanged;
+            txtEndereco.TextChanged += TxtEndereco_TextChanged;
+            txtNumero.TextChanged += TxtNumero_TextChanged;
 
+        }
+
+        private void TxtTelefone_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textoEstaVazio = String.IsNullOrEmpty(txtTelefone.Text);
+
+            if (textoEstaVazio)
+                txtTelefone.Background = new SolidColorBrush(Colors.OrangeRed);
+            else
+                txtTelefone.Background = new SolidColorBrush(Colors.White);
+        }
+
+        private void TxtNumero_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textoEstaVazio = String.IsNullOrEmpty(txtNumero.Text);
+
+            if (textoEstaVazio)
+                txtNumero.Background = new SolidColorBrush(Colors.OrangeRed);
+            else
+                txtNumero.Background = new SolidColorBrush(Colors.White);
+        }
+
+        private void TxtDescricao_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textoEstaVazio = String.IsNullOrEmpty(txtDescricao.Text);
+
+            if (textoEstaVazio)
+                txtDescricao.Background = new SolidColorBrush(Colors.OrangeRed);
+            else
+                txtDescricao.Background = new SolidColorBrush(Colors.White);
+        }
+
+        private void TxtEndereco_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textoEstaVazio = String.IsNullOrEmpty(txtEndereco.Text);
+
+            if (textoEstaVazio)
+                txtEndereco.Background = new SolidColorBrush(Colors.OrangeRed);
+            else
+                txtEndereco.Background = new SolidColorBrush(Colors.White);
+        }
+
+
+
+        //delegate
+        private void TxtNome_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textoEstaVazio = String.IsNullOrEmpty(txtNome.Text);
+
+            if (textoEstaVazio)
+                txtNome.Background = new SolidColorBrush(Colors.OrangeRed);
+            else
+                txtNome.Background = new SolidColorBrush(Colors.White);
         }
 
         private void btnOk_Click(Object sender, EventArgs e) =>
