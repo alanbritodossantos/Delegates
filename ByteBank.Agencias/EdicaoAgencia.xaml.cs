@@ -31,6 +31,8 @@ namespace ByteBank.Agencias
 
             AtualizarCamposDeTexto();
             AtualizarControles();
+
+            ValidarCampoNulo(txtNumero, EventArgs.Empty);
         }
 
         //atualizando campos de texto

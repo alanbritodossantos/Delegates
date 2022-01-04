@@ -25,3 +25,4 @@ C:\workspace\AspNetCore\Delegates\ByteBank.Agencias\obj\Debug\ByteBank.Agencias.
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias\obj\Debug\ByteBank.Agencias.pdb
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias\obj\Debug\EdicaoAgencia.g.cs
 C:\workspace\AspNetCore\Delegates\ByteBank.Agencias\obj\Debug\EdicaoAgencia.baml
+C:\workspace\AspNetCore\Delegates\ByteBank.Agencias\obj\Debug\GeneratedInternalTypeHelper.g.cs
