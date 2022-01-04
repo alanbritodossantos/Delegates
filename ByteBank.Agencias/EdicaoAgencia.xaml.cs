@@ -49,19 +49,16 @@ namespace ByteBank.Agencias
             //criamos variáveis que armazenam o código do 
             //delegates por meio de métodos anônimos, para casos pontuais de 
             //código que seria usado em apenas um lugar.
-            RoutedEventHandler dialogResultTrue = delegate (object o, RoutedEventArgs e)//metodo anonimo
-            {
-                DialogResult = true;
-            };
+            //                                  sintaxe lambda       
+            RoutedEventHandler dialogResultTrue = (o, e) => DialogResult = true; //operador de expressão lambda
+
             RoutedEventHandler dialogResultFalse = delegate (object o, RoutedEventArgs e)//metodo anonimo
             {
                 DialogResult = true;
             };
-
      
             var okEventHandler = dialogResultTrue + Fechar;
             var cancelarEventHandler = dialogResultFalse + Fechar;
-
 
             btnOk.Click += okEventHandler;
             btnCancelar.Click += cancelarEventHandler;
@@ -75,7 +72,7 @@ namespace ByteBank.Agencias
         private void btnCancelar_Click(Object sender, EventArgs e) =>
             DialogResult = false;
 
-        // (covariance )
+        // Contravariância (covariance )
         private void Fechar(Object sender, EventArgs e) =>
             Close();
         
