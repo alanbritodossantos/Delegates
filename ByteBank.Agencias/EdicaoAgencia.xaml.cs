@@ -52,11 +52,11 @@ namespace ByteBank.Agencias
             //                                  sintaxe lambda       
             RoutedEventHandler dialogResultTrue = (o, e) => DialogResult = true; //operador de expressão lambda
 
-            RoutedEventHandler dialogResultFalse = delegate (object o, RoutedEventArgs e)//metodo anonimo
-            {
-                DialogResult = true;
-            };
-     
+            RoutedEventHandler dialogResultFalse = (o, e) => DialogResult = true;
+
+
+
+
             var okEventHandler = dialogResultTrue + Fechar;
             var cancelarEventHandler = dialogResultFalse + Fechar;
 
