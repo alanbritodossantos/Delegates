@@ -60,14 +60,35 @@ namespace ByteBank.Agencias
             btnOk.Click += okEventHandler;
             btnCancelar.Click += cancelarEventHandler;
 
+            txtNumero.TextChanged += ValidarCampoNulo;
+            txtNumero.TextChanged += ValidarSomenteDigito;// valida somente o numeros
+
             txtNome.TextChanged += ValidarCampoNulo;
             txtDescricao.TextChanged += ValidarCampoNulo;
             txtEndereco.TextChanged += ValidarCampoNulo;
-            txtNumero.TextChanged += ValidarCampoNulo;
+            
             txtTelefone.TextChanged += ValidarCampoNulo;
 
         }
 
+        //usando o conceito de contravariante no caso do "EventArgs" que é um tipo menos expecifico 
+        private void ValidarSomenteDigito(object sender, EventArgs e)
+        {
+            var txt = sender as TextBox;
+
+            //verifica se possui todos caracteris como digitos "numeros"
+            //Func<char, bool> é um delegate que retorna um "char" e um delegate que retorna um "bool"
+            Func<char, bool> verificaSeEhDigito = caractere => //caractere é um argumento
+            {
+                //retorna true se for um digito e false caso contrario
+                return Char.IsDigit(caractere);
+            };
+
+            var todosCaracteresSaoDigitos = txt.Text.All(verificaSeEhDigito);
+
+            //usando ternario 
+            txt.Background = todosCaracteresSaoDigitos ? new SolidColorBrush(Colors.White) : new SolidColorBrush(Colors.OrangeRed);
+        }
 
         private void ValidarCampoNulo(Object sender, EventArgs e)
         {
