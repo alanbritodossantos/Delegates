@@ -60,39 +60,35 @@ namespace ByteBank.Agencias
             btnOk.Click += okEventHandler;
             btnCancelar.Click += cancelarEventHandler;
 
-            txtNome.TextChanged += ConstruirDelegateValidacaoCampoNulo(txtNome);
-            txtDescricao.TextChanged += ConstruirDelegateValidacaoCampoNulo(txtDescricao);
-            txtEndereco.TextChanged += ConstruirDelegateValidacaoCampoNulo(txtEndereco);
-            txtNumero.TextChanged += ConstruirDelegateValidacaoCampoNulo(txtNumero);
-            txtTelefone.TextChanged += ConstruirDelegateValidacaoCampoNulo(txtTelefone);
+            txtNome.TextChanged += ValidarCampoNulo;
+            txtDescricao.TextChanged += ValidarCampoNulo;
+            txtEndereco.TextChanged += ValidarCampoNulo;
+            txtNumero.TextChanged += ValidarCampoNulo;
+            txtTelefone.TextChanged += ValidarCampoNulo;
 
         }
 
-        //metodo que retorna um delegate 
-        //constroi delegates
-        private TextChangedEventHandler ConstruirDelegateValidacaoCampoNulo(TextBox txt)
+
+        private void ValidarCampoNulo(Object sender, EventArgs e)
         {
-            return (o, e) =>
-            {
-                var textoEstaVazio = String.IsNullOrEmpty(txt.Text);
+            var txt = sender as TextBox;
+            var textoEstaVazio = String.IsNullOrEmpty(txt.Text);
 
-                //usando ternario 
-                txt.Background = textoEstaVazio ? new SolidColorBrush(Colors.OrangeRed) : new SolidColorBrush(Colors.White);
-
-            };
+            //usando ternario 
+            txt.Background = textoEstaVazio ? new SolidColorBrush(Colors.OrangeRed) : new SolidColorBrush(Colors.White);
         }
 
-   
- 
+
+
         private void btnOk_Click(Object sender, EventArgs e) =>
             DialogResult = true;
-         
+
         private void btnCancelar_Click(Object sender, EventArgs e) =>
             DialogResult = false;
 
         // Contravariância (covariance )
         private void Fechar(Object sender, EventArgs e) =>
             Close();
-        
+
     }
 }
