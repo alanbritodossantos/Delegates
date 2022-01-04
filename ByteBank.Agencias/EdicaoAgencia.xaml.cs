@@ -76,15 +76,11 @@ namespace ByteBank.Agencias
         {
             var txt = sender as TextBox;
 
-            //verifica se possui todos caracteris como digitos "numeros"
-            //Func<char, bool> é um delegate que retorna um "char" e um delegate que retorna um "bool"
-            Func<char, bool> verificaSeEhDigito = caractere => //caractere é um argumento
-            {
-                //retorna true se for um digito e false caso contrario
-                return Char.IsDigit(caractere);
-            };
+            //essa função retorna um bool que é o que Char.IsDigit retorna
+           // Func<char, bool> verificaSeEhDigito = Char.IsDigit;
 
-            var todosCaracteresSaoDigitos = txt.Text.All(verificaSeEhDigito);
+
+            var todosCaracteresSaoDigitos = txt.Text.All(Char.IsDigit);
 
             //usando ternario 
             txt.Background = todosCaracteresSaoDigitos ? new SolidColorBrush(Colors.White) : new SolidColorBrush(Colors.OrangeRed);
