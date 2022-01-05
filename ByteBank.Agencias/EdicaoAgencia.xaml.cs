@@ -32,7 +32,7 @@ namespace ByteBank.Agencias
             AtualizarCamposDeTexto();
             AtualizarControles();
 
-            ValidarCampoNulo(txtNumero, EventArgs.Empty);
+            
         }
 
         //atualizando campos de texto
@@ -62,39 +62,27 @@ namespace ByteBank.Agencias
             btnOk.Click += okEventHandler;
             btnCancelar.Click += cancelarEventHandler;
 
-            txtNumero.TextChanged += ValidarCampoNulo;
-            txtNumero.TextChanged += ValidarSomenteDigito;// valida somente o numeros
+            //o Validacao é atributo de evento
+            txtNumero.Validacao += ValidarCampoNulo;
+            txtNumero.Validacao += ValidarSomenteDigito;// valida somente o numeros
 
-            txtNome.TextChanged += ValidarCampoNulo;
-            txtDescricao.TextChanged += ValidarCampoNulo;
-            txtEndereco.TextChanged += ValidarCampoNulo;
+            txtNome.Validacao += ValidarCampoNulo;
+            txtDescricao.Validacao += ValidarCampoNulo;
+            txtEndereco.Validacao += ValidarCampoNulo;
             
-            txtTelefone.TextChanged += ValidarCampoNulo;
+            txtTelefone.Validacao += ValidarCampoNulo;
 
         }
 
-        //usando o conceito de contravariante no caso do "EventArgs" que é um tipo menos expecifico 
-        private void ValidarSomenteDigito(object sender, EventArgs e)
+        
+        private bool ValidarSomenteDigito(String texto)
         {
-            var txt = sender as TextBox;
-
-            //essa função retorna um bool que é o que Char.IsDigit retorna
-           // Func<char, bool> verificaSeEhDigito = Char.IsDigit;
-
-
-            var todosCaracteresSaoDigitos = txt.Text.All(Char.IsDigit);
-
-            //usando ternario 
-            txt.Background = todosCaracteresSaoDigitos ? new SolidColorBrush(Colors.White) : new SolidColorBrush(Colors.OrangeRed);
+            return texto.All(Char.IsDigit);//verifica se todos os caracteres são digitos
         }
 
-        private void ValidarCampoNulo(Object sender, EventArgs e)
+        private bool ValidarCampoNulo(String texto)
         {
-            var txt = sender as TextBox;
-            var textoEstaVazio = String.IsNullOrEmpty(txt.Text);
-
-            //usando ternario 
-            txt.Background = textoEstaVazio ? new SolidColorBrush(Colors.OrangeRed) : new SolidColorBrush(Colors.White);
+            return !String.IsNullOrEmpty(texto);//verifica se é nulo ou vazio
         }
 
 
