@@ -31,23 +31,33 @@ namespace ByteBank.Agencias
             }
         }
 
-
-
-        public ValidacaoTextBox()
+        //metodo que dispara o evento
+        protected override void OnTextChanged(TextChangedEventArgs e)
         {
-            TextChanged += ValidacaoTextBox_TextChanged;
-        }
+            base.OnTextChanged(e);
 
-        private void ValidacaoTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
             OnValidacao();
         }
 
-        private void OnValidacao()
+        //foi alterado para protected para as classes filhas conseguirem enchegar o metodo
+        //e foi colocado o virtual para as classas filhas poder sobrescrever o comportamento do metodo 
+        protected virtual void OnValidacao()
         {
             if (_validacao != null)
             {
+                //retorna uma lista de 2 ou mais delegates
+                var listaValidacao = _validacao.GetInvocationList();
                 var ehValido = _validacao(Text);
+
+                foreach (ValidacaoEventHandler validacao in listaValidacao)
+                {
+                    if (!validacao(Text))//se o texto for alterado uma validação vai acontecer
+                    {
+                        ehValido = false;
+                        break;
+                    }
+                }
+
                 Background = ehValido ? new SolidColorBrush(Colors.White) : new SolidColorBrush(Colors.OrangeRed);
             }
 
