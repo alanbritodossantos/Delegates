@@ -13,8 +13,25 @@ namespace ByteBank.Agencias
 
     public class ValidacaoTextBox : TextBox
     {
+        private ValidacaoEventHandler _validacao;
+        /*a palavra reservada event na criação de nosso campo.*/
         //delegate+evento
-        public event ValidacaoEventHandler Validacao;
+        public event ValidacaoEventHandler Validacao
+        {
+            add
+            {
+                //adicionando um comportamento
+                _validacao += value;
+                OnValidacao();
+            }
+            remove
+            {
+                //removendo um comportamento
+                _validacao -= value;
+            }
+        }
+
+
 
         public ValidacaoTextBox()
         {
@@ -23,11 +40,17 @@ namespace ByteBank.Agencias
 
         private void ValidacaoTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (Validacao != null)
+            OnValidacao();
+        }
+
+        private void OnValidacao()
+        {
+            if (_validacao != null)
             {
-                var ehValido = Validacao(Text);
+                var ehValido = _validacao(Text);
                 Background = ehValido ? new SolidColorBrush(Colors.White) : new SolidColorBrush(Colors.OrangeRed);
             }
+
         }
     }
 }
