@@ -9,7 +9,7 @@ using System.Windows.Media;
 namespace ByteBank.Agencias
 {
     //delegate
-    public delegate bool ValidacaoEventHandler(string texto);
+    public delegate void ValidacaoEventHandler(object sender, ValidacaoEventArgs e);
 
     public class ValidacaoTextBox : TextBox
     {
@@ -47,11 +47,15 @@ namespace ByteBank.Agencias
             {
                 //retorna uma lista de 2 ou mais delegates
                 var listaValidacao = _validacao.GetInvocationList();
-                var ehValido = _validacao(Text);
+
+                var eventArgs = new ValidacaoEventArgs(Text);
+
+                var ehValido = true;
 
                 foreach (ValidacaoEventHandler validacao in listaValidacao)
                 {
-                    if (!validacao(Text))//se o texto for alterado uma validação vai acontecer
+                    validacao(this, eventArgs);
+                    if (!eventArgs.EhValido)//se o texto for alterado uma validação vai acontecer
                     {
                         ehValido = false;
                         break;

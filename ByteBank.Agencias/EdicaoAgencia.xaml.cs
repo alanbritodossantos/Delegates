@@ -75,14 +75,16 @@ namespace ByteBank.Agencias
         }
 
         
-        private bool ValidarSomenteDigito(String texto)
+        private void ValidarSomenteDigito(object sender, ValidacaoEventArgs e)
         {
-            return texto.All(Char.IsDigit);//verifica se todos os caracteres são digitos
+             var ehValido = e.Texto.All(Char.IsDigit);//verifica se todos os caracteres são digitos
+            e.EhValido = ehValido;
         }
 
-        private bool ValidarCampoNulo(String texto)
+        private void ValidarCampoNulo(object sender, ValidacaoEventArgs e)
         {
-            return !String.IsNullOrEmpty(texto);//verifica se é nulo ou vazio
+            var ehValido = !String.IsNullOrEmpty(e.Texto);//verifica se é nulo ou vazio
+            e.EhValido = ehValido;
         }
 
 
